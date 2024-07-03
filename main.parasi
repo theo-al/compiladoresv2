@@ -1,0 +1,13 @@
+ha v;
+ha var;
+fa
+    si 0 fa
+        imprime "segredo";
+    fi;
+
+    v := 20;
+    para var fa
+        imprime var;
+        var := var - 1;
+    fi;
+fi

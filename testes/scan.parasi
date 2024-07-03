@@ -1,0 +1,9 @@
+ha a: flt;
+ha b: int;
+fa
+    le a;
+    le b;
+
+    imprime a;
+    imprime b;
+fi

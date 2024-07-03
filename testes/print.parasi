@@ -1,0 +1,16 @@
+ha a;
+ha b;
+fa
+    a := 0;
+    b := "hohoho";
+
+    imprime 2 + 2 * 2;
+
+    imprime a + 1;
+
+    imprime b;
+
+    imprime "teste";
+    
+    sai;
+fi

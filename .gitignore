@@ -1,0 +1,12 @@
+# código gerado
+gen/
+testes/out
+main.out.c
+
+# referencia
+arthur/
+
+# Executables
+*.exe
+*.out
+*.app

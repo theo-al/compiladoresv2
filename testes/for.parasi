@@ -1,0 +1,5 @@
+fa
+    para 1 fa
+        imprime 1;
+    fi;
+fi

@@ -1,0 +1,12 @@
+ha b;
+fa
+    b := 1;
+    si b fa
+        imprime "segredo";
+    fi;
+    si ~b fa
+        si b fa imprime "paradoxo"; sai;
+        fi;
+
+    fi;
+fi

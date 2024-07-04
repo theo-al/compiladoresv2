@@ -1,5 +1,5 @@
 ha b;
-fa
+ini fa
     b := 1;
     si b fa
         imprime "segredo";

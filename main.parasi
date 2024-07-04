@@ -1,12 +1,12 @@
 #ha a;
 #ha b;
-#int func  int int flt  fa
-#    devolve $1 + $2;
+#int func int str flt fa
+#    devolve arg1 + arg3;
 #fi
 
 ha v;
 ha var;
-main fa
+ini fa
     #v := 1;
     #v := 1 + 2;
     #v := 1 + 2 + 3;

@@ -1,7 +1,7 @@
 ha a: flt;
 ha b: int;
 ha c: str;
-fa
+ini fa
     le a;
     le b;
     le c;

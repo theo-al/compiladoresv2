@@ -7,6 +7,5 @@ fa
     si ~b fa
         si b fa imprime "paradoxo"; sai;
         fi;
-
     fi;
 fi

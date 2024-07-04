@@ -4,6 +4,8 @@
 
 set -e
 
+echo "compilando parasi -> c"
+
 echo "main.parasi:"
 ./a.out < main.parasi > main.out.c
 if [ $? -eq 0 ]; then echo "pass"; fi
@@ -18,9 +20,22 @@ for file in *; do
     fi 
 done
 
+set +e
 
-#./a.out < testes/for.parasi   > testes/for.parasi.out
-#./a.out < testes/if.parasi    > testes/if.parasi.out
-#./a.out < testes/print.parasi > testes/print.parasi.out
-#./a.out < testes/var.parasi   > testes/var.parasi.out
-#./a.out < testes/scan.parasi  > testes/scan.parasi.out
+echo ""
+echo "compilando c -> exe"
+
+cp ../mem.h out/
+for file in *; do 
+    if [ -f "$file" ]; then
+        echo "$file:";
+        
+        gcc out/"$file".c -o out/"$file".out -Wno-unused-result
+        if [ $? -eq 0 ]; then echo "pass"; fi
+    fi 
+done
+
+cd ..
+echo "main.out.c:"
+gcc main.out.c -o main.out -Wno-unused-result
+if [ $? -eq 0 ]; then echo "pass"; fi

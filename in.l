@@ -7,6 +7,7 @@ int yylex();
 %}
 
 %%
+"#".*\n           {;}
 [ \t\n]           {;}
 
 "print"           { return cmd_print; }

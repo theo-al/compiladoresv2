@@ -1,6 +1,21 @@
+#ha a;
+#ha b;
+#int func  int int flt  fa
+#    devolve $1 + $2;
+#fi
+
 ha v;
 ha var;
-fa
+main fa
+    #v := 1;
+    #v := 1 + 2;
+    #v := 1 + 2 + 3;
+
+    #v := v;
+    #v := v + 11;
+    #v := v + 11 + v;
+    #v := 11 + v + 11 + v;  
+    
     si 0 fa
         imprime "segredo";
     fi;

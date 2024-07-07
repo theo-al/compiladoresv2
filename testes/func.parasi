@@ -1,0 +1,11 @@
+ha a: flt;
+ha b: int;
+ha c: str;
+int func int flt fa
+    a := a + 3;
+    b := b + 3.0 + 4;
+
+    imprime a;
+    imprime b;
+    imprime c;
+fi

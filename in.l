@@ -2,6 +2,7 @@
 #include "y.tab.h"
 
 int yylex();
+
 #define yyerror(fmt, ...) fprintf(stderr, fmt "\n", ##__VA_ARGS__)
 
 %}
@@ -12,6 +13,8 @@ int yylex();
 
 "print"           { return cmd_print; }
 "imprime"         { return cmd_print; }
+
+"devolve"         { return cmd_return; }
 
 "scan"            { return cmd_scan; }
 "le"              { return cmd_scan; }

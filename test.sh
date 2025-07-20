@@ -1,41 +1,52 @@
 #!/bin/sh
 
-./build.sh
+section() {
+    echo ""
+    echo "$1"
+    set $2
+}
+announce() {
+    echo "$1:"
+    echo -n "    ";
+}
+result() {
+    if [ $1 -eq 0 ]; then
+        echo "pass"; 
+    else
+        echo -n "    ";
+        echo "failed";
+    fi
+}
 
-set -e
+section "teste principal" -e
 
-echo "compilando parasi -> c"
+announce "main.parasi"
+./parasi main.parasi > main.parasi.c
+result $?
 
-echo "main.parasi:"
-./a.out main.parasi > main.out.c
-if [ $? -eq 0 ]; then echo "pass"; fi
+announce "main.parasi.c"
+gcc -I. "main.parasi.c" -o "main.parasi.out" -Wno-unused-result
+result $?
 
-cd testes/
-for file in *.parasi; do
-    if [ -f "$file" ]; then
-        echo "$file:";
+section "compilando parasi -> c" -e
+mkdir -p testes/out
 
-        ../a.out "$file" > out/"$file".c
-        if [ $? -eq 0 ]; then echo "pass"; fi
-    fi 
+for file in testes/*.parasi; do
+    name=$(basename "$file")
+
+    announce "$name";
+    ./parasi "$file" > "testes/out/$name.c"
+    result $?
 done
 
-set +e
 
-echo ""
-echo "compilando c -> exe"
+section "compilando c -> exe" +e
+mkdir -p testes/out
 
-cp ../mem.h out/
-for file in *; do 
-    if [ -f "$file" ]; then
-        echo "$file:";
+for file in testes/out/*.c; do
+    name=$(basename "$file")
 
-        gcc out/"$file".c -o out/"$file".out -Wno-unused-result
-        if [ $? -eq 0 ]; then echo "pass"; fi
-    fi 
+    announce "$name";
+    gcc -I. "$file" -o "testes/out/$name.out" -Wno-unused-result
+    result $?
 done
-
-cd ..
-echo "main.out.c:"
-gcc main.out.c -o main.out -Wno-unused-result
-if [ $? -eq 0 ]; then echo "pass"; fi

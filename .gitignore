@@ -1,12 +1,15 @@
+# tudo escondido
+.*
+
 # código gerado
 gen/
 testes/out
-main.out.c
+*.parasi.*
 
-# referencia
+# referência
 arthur/
 
-# Executables
-*.exe
+# executáveis
+parasi
 *.out
-*.app
+*.exe
